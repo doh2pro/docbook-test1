@@ -47,7 +47,7 @@ jobs:
         ls   
         
         
-      - run: |
+    - run: |
         pwd
         cd ./dest
         pwd
