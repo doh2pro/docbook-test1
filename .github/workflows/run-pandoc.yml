@@ -1,0 +1,57 @@
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    
+    
+    
+jobs:
+  convert_via_pandoc:
+    runs-on: ubuntu-18.04
+    
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: main
+        path: source
+        
+    - name: source dir
+      working-directory: ./source
+      run: |
+        pwd
+        ls
+        #cd source
+        echo "::set-env name=FILELIST::$(printf '"%s" ' *.xml)"
+        
+    - uses: actions/checkout@v2
+      with:
+        ref: gh-pages 
+        path: dest
+
+    - name: dist dir
+      run: |
+        pwd
+        ls
+        cd dest
+        pwd
+        ls        
+        
+
+    - uses: docker://pandoc/core:2.9
+      working-directory: ./source
+      with:
+          args: |>  # allows you to break string into multiple lines
+            --from docbook 
+            --to html
+            --output=../dest/index.html
+            ${{ env.FILELIST }}
+            
+            
+    - name: dist dir
+      run: |
+        pwd
+        ls
+        cd dest
+        pwd
+        ls   
