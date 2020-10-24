@@ -1,8 +1,6 @@
 on:
   push:
-  
-    
-    
+
 jobs:
   convert_via_pandoc:
     runs-on: ubuntu-18.04
@@ -35,14 +33,14 @@ jobs:
         ls        
         
 
-    - uses: docker://pandoc/core:2.9
-      working-directory: ./source
-      with:
-          args: |>  # allows you to break string into multiple lines
-            --from docbook 
-            --to html
-            --output=../dest/index.html
-            ${{ env.FILELIST }}
+    # uses: docker://pandoc/core:2.9
+#      working-directory: ./source
+#      with:
+#        args: |>
+#          --from docbook 
+#            --to html
+#            --output=../dest/index.html
+#            ${{ env.FILELIST }}
             
             
     - name: dist dir
