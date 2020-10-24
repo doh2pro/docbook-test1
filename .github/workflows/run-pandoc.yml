@@ -1,9 +1,5 @@
 on:
   push:
-
-defaults:
-  run:
-    working-directory: ./source
     
 jobs:
   convert_via_pandoc:
