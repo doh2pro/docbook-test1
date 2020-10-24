@@ -38,7 +38,7 @@ jobs:
 
     - uses: docker://pandoc/core:2.9
       with:
-        args: --from docbook --to html --output=../dest/index.html ${{ env.FILELIST }}
+        args: --from docbook --to html --output=../dest/index.html first_docbook_article.xml
             
             
     - name: list dest dir
