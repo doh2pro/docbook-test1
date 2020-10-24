@@ -1,6 +1,10 @@
 on:
   push:
 
+defaults:
+  run:
+    working-directory: ./source
+    
 jobs:
   convert_via_pandoc:
     runs-on: ubuntu-18.04
@@ -12,7 +16,6 @@ jobs:
         path: source
         
     - name: source dir
-      working-directory: ./source
       run: |
         pwd
         ls
@@ -28,25 +31,24 @@ jobs:
       run: |
         pwd
         ls
-        cd dest
+        cd ../dest
         pwd
         ls        
         
 
-    # uses: docker://pandoc/core:2.9
-#      working-directory: ./source
-#      with:
-#        args: |>
-#          --from docbook 
-#            --to html
-#            --output=../dest/index.html
-#            ${{ env.FILELIST }}
+    - uses: docker://pandoc/core:2.9
+      with:
+        args: |
+          --from docbook 
+          --to html
+          --output=../dest/index.html
+          ${{ env.FILELIST }}
             
             
-    - name: dist dir
+    - name: list dest dir
       run: |
         pwd
         ls
-        cd dest
+        cd ../dest
         pwd
         ls   
