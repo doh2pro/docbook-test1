@@ -13,6 +13,7 @@ jobs:
         
     - name: source dir
       run: |
+        cd ./source
         pwd
         ls
         #cd source
@@ -27,7 +28,7 @@ jobs:
       run: |
         pwd
         ls
-        cd ../dest
+        cd ./dest
         pwd
         ls        
         
@@ -41,6 +42,6 @@ jobs:
       run: |
         pwd
         ls
-        cd ../dest
+        cd ./dest
         pwd
         ls   
