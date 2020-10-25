@@ -11,18 +11,9 @@
   <pubdate>2020</pubdate>
  </info>
 
- <section id="intro">
+ <section>
   <title>Introduction</title>
-  <para>Introductory text goes here.</para>
+  <para>Hello world.</para>
   </section>
 
- <section id="body">
-  <title>Section with a title</title>
-  <para>Main body text goes here.</para>
- </section>
-
- <section id="conclusion">
-  <title>Conclusion</title>
-  <para>Exciting and inspiring conclusion goes here.</para>
- </section>
 </article>
